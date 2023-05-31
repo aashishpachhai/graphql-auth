@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  username: String!
+  password: String!
+  email: String!
+  phoneNumber: String!
+}
+
+type Error {
+  message: String!
+}
+
+type Tokn {
+  access: String!
+  refresh: String!
+}
+
+type GetUser {
+  username: String!
+  email: String!
+  phoneNumber: String!
+}
+
+type AccessTokn {
+  access: String!
+}
+
+type Query {
+  findAll: [User!]!
+  findByemail(email: String!): User!
+  user(id: Int!): [User!]!
+  login(email: String!, password: String!): Tokn!
+  getTokenbyRefresh(refresh: String!): AccessTokn!
+  getuserbyToken: GetUser!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): [User!]!
+  updateUser(id: Int!, updateUserInput: UpdateUserInput!): [User!]!
+  removeUser(id: Int!): [Error!]!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+  email: String!
+  phoneNumber: String!
+}
+
+input UpdateUserInput {
+  username: String
+  password: String
+  email: String
+  phoneNumber: String
+}
